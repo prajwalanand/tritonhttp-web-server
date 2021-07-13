@@ -1,0 +1,31 @@
+For testing, we used 3 approaches:
+
+1. netcat
+
+We created an input request file using the printf command as:
+
+printf "REQUEST_MESSAGE" > request.txt
+
+REQUEST_MESSAGE is substituted with each test case message.
+
+We follow this with a netcat command as:
+
+cat request.txt | nc localhost 8080
+
+The response message is shown on the console as output.
+
+2. Python script
+
+We used the attached Python file (testing_script.py) to test some of our test cases.
+
+The Python file creates request messages as a byte string (msgPart1) and sends this to the server with the help of the socket module of Python.
+
+Then we read the response and output whatever lines we receive to the console.
+
+**Refer our writeup PDF to find all our test request messages.
+
+3. Browser
+
+For some test cases, we simply used the browser and entered the address http://localhost:8080/ to send a default valid request and viewed the response.
+
+This was especially useful for rendering image files. We verified the response headers by inspecting the Network tab and viewing the response message.
